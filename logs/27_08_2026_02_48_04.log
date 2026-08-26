@@ -1,0 +1,16 @@
+[2026-08-27 02:48:05,214] 39 root - INFO - Agent Created
+[2026-08-27 02:48:05,244] 19 root - INFO - Agent Loaded
+[2026-08-27 02:48:05,244] 22 root - INFO - User Query:
+[2026-08-27 02:48:15,577] 19 root - INFO - Agent Loaded
+[2026-08-27 02:48:15,579] 22 root - INFO - User Query:What is the capital of India ?
+[2026-08-27 02:48:15,644] 19 root - INFO - Agent Loaded
+[2026-08-27 02:48:15,645] 22 root - INFO - User Query:What is the capital of India ?
+[2026-08-27 02:48:18,088] 1025 httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-08-27 02:50:14,119] 19 root - INFO - Agent Loaded
+[2026-08-27 02:50:14,120] 22 root - INFO - User Query:
+[2026-08-27 02:50:33,256] 19 root - INFO - Agent Loaded
+[2026-08-27 02:50:33,257] 22 root - INFO - User Query:What is your name ?
+[2026-08-27 02:50:34,668] 19 root - INFO - Agent Loaded
+[2026-08-27 02:50:34,669] 22 root - INFO - User Query:What is your name ?
+[2026-08-27 02:50:37,599] 1025 httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-08-27 02:50:37,602] 30 root - INFO - Response:I'm Claude, an AI assistant made by Anthropic. How can I help you today?

@@ -3,4 +3,8 @@ pandas
 matplotlib
 seaborn
 scikit-learn
+python-dotenv
+streamlit
+langchain
+langchain-anthropic
 #-e .

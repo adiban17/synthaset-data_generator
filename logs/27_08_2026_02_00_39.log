@@ -1,0 +1,5 @@
+[2026-08-27 02:00:39,083] 25 root - ERROR - Model Name not valid.
+[2026-08-27 02:00:39,083] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/config.py
+Line Number: [26]
+Error Message: Model Name not valid.
