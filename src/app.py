@@ -2,6 +2,7 @@ import sys
 from src.exception import CustomException
 from src.logger import logging
 from src.config import Config
+from src.utils import clean_output
 import streamlit as st
 
 
@@ -26,7 +27,7 @@ try:
         if user_query:
             with st.spinner("Thinking..."):
                 result = agent.invoke({"messages": [("user", user_query)]})
-                answer = result['messages'][-1].content
+                answer = clean_output(result)
                 logging.info(f"Response:{answer}")
                 st.write("**Response:**")
                 st.info(answer)
