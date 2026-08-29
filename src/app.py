@@ -10,20 +10,7 @@ dataingestion = DataIngestion()
 
 st.title("SynthSet POC")
 st.subheader("Dataset Configuration")
-dataset_name, features, num_rows = dataingestion.ingest_data()
-
-#@st.cache_resource
-#def load_agent():
-#    try:
-#        config = Config()
-#        return config.llm_config()
-#    except Exception as e:
-#        raise CustomException(e, sys)
-
-#agent = load_agent()
-#logging.info("Agent Loaded")
-
-# --- NEW DATASET CONFIGURATION UI ---
+dataset_name, features, num_rows, output_feature, output_type, feature_categories  = dataingestion.ingest_data()
 
 
 

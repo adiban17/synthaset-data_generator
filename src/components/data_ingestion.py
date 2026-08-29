@@ -9,6 +9,9 @@ class DataIngestion:
         self.dataset_name = ""
         self.features = []
         self.num_rows = 0
+        self.output_feature = ""
+        self.feature_type = ""
+        self.output_categories = []
 
     def ingest_data(self):
         # Input 1: Name of the dataset
@@ -17,7 +20,6 @@ class DataIngestion:
         # Input 2: Dynamic Features (Default 2, Max 5)
         if "feature_count" not in st.session_state:
             st.session_state.feature_count = 2
-
 
         for i in range(st.session_state.feature_count):
             feat = st.text_input(f"Feature {i + 1}", key=f"feature_{i}")
@@ -34,7 +36,26 @@ class DataIngestion:
 
         st.divider()
 
+        # --- NEW INPUTS: Output Feature and Feature Type ---
+        self.output_feature = st.text_input("Output Feature Name:", placeholder="e.g., Churn Status")
         
+        self.feature_type = st.selectbox("Feature Type:", options=["Numerical", "Categorical"])
+
+        # Dynamic Categories if Categorical is selected
+        if self.feature_type == "Categorical":
+            if "category_count" not in st.session_state:
+                st.session_state.category_count = 2
+
+            for i in range(st.session_state.category_count):
+                cat = st.text_input(f"Category {i + 1}", key=f"category_{i}")
+                self.output_categories.append(cat)
+
+            if st.session_state.category_count < 5:
+                if st.button("➕ Add Category"):
+                    st.session_state.category_count += 1
+                    st.rerun()
+                    
+        st.divider()
 
         # The submit button that triggers the display of the details
         if st.button("Submit"):
@@ -45,7 +66,13 @@ class DataIngestion:
             st.write(f"**Features:** {valid_features}")
             
             st.write(f"**Number of Data Points:** {self.num_rows}")
+            
+            # Display new inputs
+            st.write(f"**Output Feature:** {self.output_feature}")
+            st.write(f"**Feature Type:** {self.feature_type}")
+            
+            if self.feature_type == "Categorical":
+                valid_categories = [c for c in self.output_categories if c.strip()]
+                st.write(f"**Output Categories:** {valid_categories}")
 
-        return self.dataset_name, self.features, self.num_rows
-
-        # --- END NEW UI ---
+        return self.dataset_name, self.features, self.num_rows, self.output_feature, self.feature_type, self.output_categories
