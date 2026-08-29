@@ -3,6 +3,7 @@ import sys
 from dotenv import load_dotenv
 
 from langchain.agents import create_agent
+from langchain_anthropic import ChatAnthropic
 
 from src.logger import logging
 from src.exception import CustomException
@@ -32,9 +33,10 @@ class Config:
                 logging.error("Invalid System Prompt")
                 raise ValueError("Invalid System Prompt")
 
-            agent = create_agent(
-                model=MODEL_NAME,
-                system_prompt=SYSTEM_PROMPT
+            agent = ChatAnthropic(
+                model=self.model_name,
+                temperature=0,
+                api_key=self.llm_api_key
             )
             logging.info("Agent Created")
 

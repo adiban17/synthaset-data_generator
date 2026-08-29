@@ -5,12 +5,43 @@ from src.config import Config
 from src.utils import clean_output
 import streamlit as st
 from src.components.data_ingestion import DataIngestion
+from src.components.data_validation import DataValidation
 
 dataingestion = DataIngestion()
 
 st.title("SynthSet POC")
 st.subheader("Dataset Configuration")
 dataset_name, features, num_rows, output_feature, output_type, feature_categories  = dataingestion.ingest_data()
+
+datavalidation = DataValidation(
+    dataset_name=dataset_name,
+    features=features,
+    num_rows=num_rows,
+    output_feature=output_feature,
+    output_type=output_type,
+    feature_categories=feature_categories
+    )
+datavalidation.data_validation()
+
+
+
+# Fixed tuple unpacking here
+#is_relevant, reasoning = datavalidation.data_validation()
+
+#st.divider() # Adds a clean horizontal line
+#st.subheader("Validation Results")
+
+# Display a colored alert based on whether the validation passed or failed
+#if is_relevant:
+#    st.success("✅ Validation Passed: All features are relevant.", icon="✅")
+#else:
+#    st.error("❌ Validation Failed: Irrelevant or mismatched features detected.", icon="🚨")
+
+# Put the verbose reasoning inside a clean container
+#with st.expander("View Detailed Reasoning", expanded=True):
+#    st.markdown(f"**Agent Reasoning:**\n\n{reasoning}")
+
+
 
 
 

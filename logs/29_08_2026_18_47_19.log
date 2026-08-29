@@ -1,0 +1,18 @@
+[2026-08-29 18:47:20,130] 41 root - INFO - Agent Created
+[2026-08-29 18:47:22,215] 1025 httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-08-29 18:47:22,245] 16 root - INFO - 'AIMessage' object is not subscriptable
+[2026-08-29 18:47:22,245] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/synthaset/src/utils.py
+Line Number: [13]
+Error Message: 'AIMessage' object is not subscriptable
+[2026-08-29 18:47:22,246] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/synthaset/src/utils.py
+Line Number: [13]
+Error Message: 'AIMessage' object is not subscriptable
+[2026-08-29 18:47:22,246] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/synthaset/src/utils.py
+Line Number: [33]
+Error Message: 
+Error Location: /Users/adityabanerjee/synthaset/src/utils.py
+Line Number: [13]
+Error Message: 'AIMessage' object is not subscriptable
