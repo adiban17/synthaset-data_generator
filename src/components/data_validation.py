@@ -3,7 +3,7 @@ from src.exception import CustomException
 from src.logger import logging
 from typing import List, Optional
 import streamlit as st
-from src.llm.feature_validation import feature_validation # Assuming feature_validation.py is inside src/llm/
+from src.llm.feature_validation import feature_validation 
 
 class DataValidation:
     def __init__(
@@ -25,28 +25,40 @@ class DataValidation:
             )
 
     def data_validation(self):
-        # Fixed typo, removed num_rows, and used keyword arguments
-        result = feature_validation(
-            dataset_name=self.dataset_name,
-            dataset_features=self.features,
-            output_feature=self.output_feature,
-            feature_type=self.output_type,
-            feature_categories=self.feature_categories
-        )
-        is_relevant = result.is_relevant
-        reasoning = result.reasoning
+        
+        try:
+            logging.info("Data Validation Started.")
+            result = feature_validation(
+                dataset_name=self.dataset_name,
+                dataset_features=self.features,
+                output_feature=self.output_feature,
+                feature_type=self.output_type,
+                feature_categories=self.feature_categories
+            )
 
-        st.divider() # Adds a clean horizontal line
-        st.subheader("Validation Results")
+            is_relevant = result.is_relevant
+            reasoning = result.reasoning
 
-        # Display a colored alert based on whether the validation passed or failed
-        if is_relevant:
-            st.success("✅ Validation Passed: All features are relevant.", icon="✅")
-        else:
-            st.error("❌ Validation Failed: Irrelevant or mismatched features detected.", icon="🚨")
+            st.divider() 
 
-        # Put the verbose reasoning inside a clean container
-        with st.expander("View Detailed Reasoning", expanded=True):
-            st.markdown(f"**Agent Reasoning:**\n\n{reasoning}")
 
+            # Display results
+            st.subheader("Validation Results")
+            
+            if is_relevant:
+                st.success(" Validation Passed: All features are relevant.")
+            else:
+                st.error("Validation Failed: Irrelevant or mismatched features detected.")
+
+            
+            with st.expander("View Detailed Reasoning", expanded=True):
+                st.markdown(f"**Agent Reasoning:**\n\n{reasoning}")
+
+            # Logs
+            logging.info(f"is_relevant: {is_relevant}")
+            logging.info(f"Reasoning: {reasoning}")
+            logging.info("Data Validation Complete !")
+
+        except Exception as e:
+            raise CustomException(e, sys)
         

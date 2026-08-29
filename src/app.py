@@ -11,17 +11,21 @@ dataingestion = DataIngestion()
 
 st.title("SynthSet POC")
 st.subheader("Dataset Configuration")
-dataset_name, features, num_rows, output_feature, output_type, feature_categories  = dataingestion.ingest_data()
 
-datavalidation = DataValidation(
-    dataset_name=dataset_name,
-    features=features,
-    num_rows=num_rows,
-    output_feature=output_feature,
-    output_type=output_type,
-    feature_categories=feature_categories
+dataset_name, features, num_rows, output_feature, output_type, feature_categories, is_submitted = dataingestion.ingest_data()
+
+if is_submitted:
+    datavalidation = DataValidation(
+        dataset_name=dataset_name,
+        features=features,
+        num_rows=num_rows,
+        output_feature=output_feature,
+        output_type=output_type,
+        feature_categories=feature_categories
     )
-datavalidation.data_validation()
+    
+    with st.spinner("Agent is validating your features..."):
+        datavalidation.data_validation()
 
 
 

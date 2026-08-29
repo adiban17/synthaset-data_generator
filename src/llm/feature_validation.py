@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 from langchain_core.prompts import ChatPromptTemplate
 
 
+# Pydantic structured output
 class FeatureValidationResult(BaseModel):
     is_relevant: bool = Field(
         description="True if all features are relevant to the dataset and output features, False otherwise"
@@ -38,46 +39,51 @@ def feature_validation(
             FeatureValidationResult contains boolena is_relevant and reasoning.
     '''
 
-    llm = load_agent().with_structured_output(FeatureValidationResult)
 
-    system_prompt = """
-    You are an expert machine learning data engineer.
-    Your task is to validate whether the given input features and output feature make logical sense and are relevant to the specifier datsset name.
-    Analyze if any feature is completely irrelevant, nonsensical, ormismatched for the context of the prediction task.
-    Return a boolean feature for is_relevant (True if all features make sense, False if theere is an irrelevant or nonsensical feature) along with clear reasoning.
-    """
+    try:
+        llm = load_agent().with_structured_output(FeatureValidationResult)
 
-    human_prompt = """
-    Dataset Name: {dataset_name}
-    Features: {dataset_features}
-    Output Feature: {output_feature}
-    Feature Type: {feature_type}
-    Output Categories: {feature_categories}
+        system_prompt = """
+        You are an expert machine learning data engineer.
+        Your task is to validate whether the given input features and output feature make logical sense and are relevant to the specifier datsset name.
+        Analyze if any feature is completely irrelevant, nonsensical, ormismatched for the context of the prediction task.
+        Return a boolean feature for is_relevant (True if all features make sense, False if theere is an irrelevant or nonsensical feature) along with clear reasoning.
+        """
 
-    Validate this configuration.
-    """
+        human_prompt = """
+        Dataset Name: {dataset_name}
+        Features: {dataset_features}
+        Output Feature: {output_feature}
+        Feature Type: {feature_type}
+        Output Categories: {feature_categories}
 
-    prompt = ChatPromptTemplate.from_messages(
-        [("system", system_prompt),
-        ("human", human_prompt)
-        ]
-    )
+        Validate this configuration.
+        """
 
-    chain = prompt | llm
+        prompt = ChatPromptTemplate.from_messages(
+            [("system", system_prompt),
+            ("human", human_prompt)
+            ]
+        )
 
-    result = chain.invoke(
-        {
-            "dataset_name": dataset_name,
-            "dataset_features": dataset_features,
-            "output_feature": output_feature,
-            "feature_type": feature_type,
-            "feature_categories": (
-                feature_categories if feature_categories else []
-            ),
-        }
-    )
+        chain = prompt | llm
 
-    return result
+        result = chain.invoke(
+            {
+                "dataset_name": dataset_name,
+                "dataset_features": dataset_features,
+                "output_feature": output_feature,
+                "feature_type": feature_type,
+                "feature_categories": (
+                    feature_categories if feature_categories else []
+                ),
+            }
+        )
+
+        return result
+
+    except Exception as e:
+        raise CustomException(e, sys)
 
 
 # Test
