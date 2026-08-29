@@ -1,0 +1,44 @@
+[2026-08-29 12:53:04,613] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/config.py
+Line Number: [35]
+Error Message: Unable to import langchain_anthropic. Please install with `pip install -U langchain-anthropic`
+[2026-08-29 12:53:04,614] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/app.py
+Line Number: [14]
+Error Message: 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/config.py
+Line Number: [35]
+Error Message: Unable to import langchain_anthropic. Please install with `pip install -U langchain-anthropic`
+[2026-08-29 12:53:04,614] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/config.py
+Line Number: [35]
+Error Message: Unable to import langchain_anthropic. Please install with `pip install -U langchain-anthropic`
+[2026-08-29 12:53:04,616] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/config.py
+Line Number: [35]
+Error Message: Unable to import langchain_anthropic. Please install with `pip install -U langchain-anthropic`
+[2026-08-29 12:53:04,616] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/app.py
+Line Number: [14]
+Error Message: 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/config.py
+Line Number: [35]
+Error Message: Unable to import langchain_anthropic. Please install with `pip install -U langchain-anthropic`
+[2026-08-29 12:53:04,616] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/app.py
+Line Number: [14]
+Error Message: 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/config.py
+Line Number: [35]
+Error Message: Unable to import langchain_anthropic. Please install with `pip install -U langchain-anthropic`
+[2026-08-29 12:53:04,616] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/config.py
+Line Number: [35]
+Error Message: Unable to import langchain_anthropic. Please install with `pip install -U langchain-anthropic`
+[2026-08-29 12:53:04,677] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/app.py
+Line Number: [14]
+Error Message: 
+Error Location: /Users/adityabanerjee/Library/CloudStorage/GoogleDrive-adityabanerjee171@gmail.com/My Drive/Projects/synthaset/src/config.py
+Line Number: [35]
+Error Message: Unable to import langchain_anthropic. Please install with `pip install -U langchain-anthropic`
