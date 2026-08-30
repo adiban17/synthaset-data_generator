@@ -81,17 +81,17 @@ class DataIngestion:
             is_submitted = st.button("Submit")
             
             if is_submitted:
-                st.write(f"**Dataset Name:** {self.dataset_name}")
+                #st.write(f"**Dataset Name:** {self.dataset_name}")
                 
                 valid_features = [f for f in self.features if f.strip()]
-                st.write(f"**Features:** {valid_features}")
-                st.write(f"**Number of Data Points:** {self.num_rows}")
-                st.write(f"**Output Feature:** {self.output_feature}")
-                st.write(f"**Feature Type:** {self.feature_type}")
+                #st.write(f"**Features:** {valid_features}")
+                #st.write(f"**Number of Data Points:** {self.num_rows}")
+                #st.write(f"**Output Feature:** {self.output_feature}")
+                #st.write(f"**Feature Type:** {self.feature_type}")
                 
-                if self.feature_type == "Categorical":
-                    valid_categories = [c for c in self.output_categories if c.strip()]
-                    st.write(f"**Output Categories:** {valid_categories}")
+                #if self.feature_type == "Categorical":
+                #    valid_categories = [c for c in self.output_categories if c.strip()]
+                #    st.write(f"**Output Categories:** {valid_categories}")
 
                 # Logs
                 logging.info(f"Dataset Name: {self.dataset_name}")
