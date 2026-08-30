@@ -27,7 +27,11 @@ class DataValidation:
     def data_validation(self):
         
         try:
-            logging.info("Data Validation Started.")
+            
+            if "validation_started_logged" not in st.session_state:
+                logging.info("Started Feature Validation")
+                st.session_state.validation_started_logged = True
+
             result = feature_validation(
                 dataset_name=self.dataset_name,
                 dataset_features=self.features,
@@ -58,6 +62,8 @@ class DataValidation:
             logging.info(f"is_relevant: {is_relevant}")
             logging.info(f"Reasoning: {reasoning}")
             logging.info("Data Validation Complete !")
+
+            return is_relevant, reasoning
 
         except Exception as e:
             raise CustomException(e, sys)

@@ -1,0 +1,15 @@
+[2026-08-30 12:50:30,559] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/synthaset/src/llm/feature_classification.py
+Line Number: [33]
+Error Message: 'CachedFunc' object has no attribute 'with_structured_output'
+[2026-08-30 12:50:30,559] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/synthaset/src/llm/feature_classification.py
+Line Number: [33]
+Error Message: 'CachedFunc' object has no attribute 'with_structured_output'
+[2026-08-30 12:50:30,559] 18 root - ERROR - 
+Error Location: /Users/adityabanerjee/synthaset/src/llm/feature_classification.py
+Line Number: [81]
+Error Message: 
+Error Location: /Users/adityabanerjee/synthaset/src/llm/feature_classification.py
+Line Number: [33]
+Error Message: 'CachedFunc' object has no attribute 'with_structured_output'

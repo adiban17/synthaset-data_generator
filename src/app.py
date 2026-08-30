@@ -6,6 +6,7 @@ from src.utils import clean_output
 import streamlit as st
 from src.components.data_ingestion import DataIngestion
 from src.components.data_validation import DataValidation
+from src.components.data_classification import DataClassification
 
 dataingestion = DataIngestion()
 
@@ -25,8 +26,20 @@ if is_submitted:
     )
     
     with st.spinner("Agent is validating your features..."):
-        datavalidation.data_validation()
+        is_relevant, reasoning = datavalidation.data_validation()
 
+
+    
+    if is_relevant:
+        dataclassification = DataClassification(
+            dataset_name=dataset_name,
+            features=features
+        )
+
+        with st.spinner("Agent is classifying your features..."):
+            numerical_features, categoircal_features = dataclassification.data_classification()
+    else:
+        st.write('Try Again with a valid configuration')
 
 
 # Fixed tuple unpacking here
